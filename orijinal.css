@@ -1,9 +1,8 @@
-#title{
+header{
   width: 90%;
-  padding-right: 50px;
-  padding-left: 50px;
-  margin-right: auto;
-  margin-left: auto;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color: #313131;
   color: #FFFFFF;
   margin-bottom: 20px;

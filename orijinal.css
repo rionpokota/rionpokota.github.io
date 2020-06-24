@@ -10,12 +10,16 @@
   margin-bottom: 20px;
   letter-spacing: 10px;
   line-height: 100px;
-  
+
 }
 
 #page{
   display: block;
   width: 80%;
+  padding-right: 50px;
+  padding-left: 50px;
+  margin-right: auto;
+  margin-left: auto;
   overflow: hidden;
   background-color: #323232;
   margin-bottom: 20px;

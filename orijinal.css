@@ -1,11 +1,9 @@
 #title{
-  display: block;
   width: 90%;
   padding-right: 50px;
   padding-left: 50px;
   margin-right: auto;
   margin-left: auto;
-  overflow: hidden;
   background-color: #313131;
   color: #FFFFFF;
   margin-bottom: 20px;
@@ -14,13 +12,11 @@
 }
 
 #page{
-  display: block;
   width: 90%;
   padding-right: 20px;
   padding-left: 20px;
   margin-right: auto;
   margin-left: auto;
-  overflow: hidden;
   background-color: #FFFFFF;
 
 }

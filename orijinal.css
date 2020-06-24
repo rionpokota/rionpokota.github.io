@@ -1,7 +1,10 @@
 #title{
   display: block;
   width: 80%;
-  margin-left: 20%;
+  padding-right: 50px;
+  padding-left: 50px;
+  margin-right: auto;
+  margin-left: auto;
   overflow: hidden;
   background-color: #313131;
   margin-bottom: 20px;
@@ -17,5 +20,5 @@
   margin-bottom: 20px;
   letter-spacing: 2px;
   line-height: 100px;
-  
+
 }

@@ -22,5 +22,15 @@
   margin-left: auto;
   overflow: hidden;
   background-color: #FFFFFF;
-  
+
+}
+
+footer{
+    font-size: 80%;
+    width: 90%;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #313131;
+    color: #FFFFFF;
 }

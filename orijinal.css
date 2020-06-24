@@ -1,4 +1,7 @@
 header{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
   width: 90%;
   text-align: center;
   padding-top: 10px;
@@ -7,8 +10,8 @@ header{
   color: #FFFFFF;
   margin-bottom: 20px;
   letter-spacing: 10px;
-  line-height: 100px;
-  
+  line-height: 100px
+
 }
 
 #page{
@@ -18,16 +21,19 @@ header{
   margin-right: auto;
   margin-left: auto;
   background-color: #FFFFFF;
-  margin-bottom: 20px;
+  margin-bottom: 20px
 }
 
 footer{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
     font-size: 80%;
     width: 90%;
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: #313131;
-    color: #FFFFFF;
+    color: #FFFFFF
 
 }

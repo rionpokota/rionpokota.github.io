@@ -27,6 +27,19 @@ header{
   
 }
 
+.line {
+	display: flex;
+	align-items: center;
+}
+.line:after{
+	border-top: 1px solid;
+	content: "";
+	flex-grow: 1;
+}
+.contents {
+	margin-left: 10px;
+}
+
 footer{
     display: block;
     margin-right: auto;

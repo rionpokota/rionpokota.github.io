@@ -39,6 +39,15 @@ header{
 .contents {
 	margin-left: 10px;
 }
+.flex{
+  display: flex;
+}
+.left {
+  width: 200px;
+}
+.right{
+  width: calc(90% - 200px);
+}
 
 footer{
     display: block;

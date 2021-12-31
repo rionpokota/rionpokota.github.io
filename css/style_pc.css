@@ -37,7 +37,15 @@ header{
 .contents {
 	margin-left: 12px;
 }
-
+.flex{
+  display: flex;
+}
+.left {
+  width: 200px;
+}
+.right{
+  width: calc(70% - 200px);
+}
 
 footer{
     display: block;

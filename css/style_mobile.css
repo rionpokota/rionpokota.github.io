@@ -43,10 +43,10 @@ header{
   display: flex;
 }
 .left {
-  width: 200px;
+  width: 120px;
 }
 .right{
-  width: calc(90% - 200px);
+  width: calc(90% - 120px);
 }
 
 footer{

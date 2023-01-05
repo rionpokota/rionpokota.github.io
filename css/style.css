@@ -251,12 +251,12 @@ body {
 ---------------------------------------------------------------------------*/
 /*メニュー１個あたりの設定*/
 #menubar li {
-	display: block;	/*縦並びにする設定*/
-	margin-bottom: 10px;
+	display: inline;	/*横並びにする設定*/
+	/* margin-right: 5px; */
 }
 #menubar li a {
 	text-decoration: none;
-	padding: 8px 30px;	/*各メニュー内の余白。*/
+	padding: 8px 10px;	/*各メニュー内の余白。*/
 }
 
 /*Galleryページ

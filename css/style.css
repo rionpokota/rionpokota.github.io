@@ -277,3 +277,34 @@ body {
 .ws,.wl {width: 94%;}
 
 }
+
+
+/* 更新履歴を見る */
+#new summary {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	list-style: none;
+}
+
+#new summary::-webkit-details-marker {
+	display: none;
+}
+
+#new summary::marker {
+	display: none;
+}
+
+#new summary h2 {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+#new summary h2::before {
+	content: "▶ ";
+}
+
+#new details[open] summary h2::before {
+	content: "▼ ";
+}

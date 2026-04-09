@@ -4,8 +4,9 @@
 		return;
 	}
 
-	var namespace = "capricalm-rionpokota-github-io";
-	var key = "site-access-total";
+	var workspace = "capricalm-rionpokota-github-io";
+	var counterName = "site-access-total";
+	var apiBaseUrl = "https://api.counterapi.dev/v2/" + workspace + "/" + counterName;
 	var storageCountKey = "capricalm-access-count-cache";
 	var storageVisitKey = "capricalm-access-last-visit-at";
 	var revisitWindowMs = 15 * 60 * 1000;
@@ -16,6 +17,22 @@
 
 	function updateDisplay(value) {
 		counterElement.textContent = formatCount(value);
+	}
+
+	function extractCount(data) {
+		if (!data || typeof data !== "object") {
+			return 0;
+		}
+
+		if (typeof data.up_count === "number") {
+			return data.up_count;
+		}
+
+		if (typeof data.value === "number") {
+			return data.value;
+		}
+
+		return 0;
 	}
 
 	function readCachedCount() {
@@ -38,8 +55,9 @@
 		}
 	}
 
-	function requestCounter(url, countedVisit) {
-		return fetch(url, {
+	function requestCounter(shouldIncrement) {
+		var endpoint = shouldIncrement ? apiBaseUrl + "/up" : apiBaseUrl;
+		return fetch(endpoint, {
 			method: "GET",
 			cache: "no-store"
 		})
@@ -50,8 +68,8 @@
 				return response.json();
 			})
 			.then(function (data) {
-				var count = typeof data.value === "number" ? data.value : 0;
-				writeCache(count, countedVisit);
+				var count = extractCount(data);
+				writeCache(count, shouldIncrement);
 				updateDisplay(count);
 			});
 	}
@@ -67,11 +85,7 @@
 		countedVisit = false;
 	}
 
-	var endpoint = countedVisit
-		? "https://api.countapi.xyz/get/" + namespace + "/" + key
-		: "https://api.countapi.xyz/hit/" + namespace + "/" + key;
-
-	requestCounter(endpoint, !countedVisit).catch(function () {
+	requestCounter(!countedVisit).catch(function () {
 		updateDisplay(cachedCount);
 	});
 })();

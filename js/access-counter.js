@@ -7,13 +7,8 @@
 	var namespace = "capricalm-rionpokota-github-io";
 	var key = "site-access-total";
 	var storageCountKey = "capricalm-access-count-cache";
-	var storageDateKey = "capricalm-access-count-date";
-	var today = new Date();
-	var todayKey = [
-		today.getFullYear(),
-		String(today.getMonth() + 1).padStart(2, "0"),
-		String(today.getDate()).padStart(2, "0")
-	].join("-");
+	var storageVisitKey = "capricalm-access-last-visit-at";
+	var revisitWindowMs = 15 * 60 * 1000;
 
 	function formatCount(value) {
 		return String(Math.max(0, value)).padStart(5, "0");
@@ -32,18 +27,18 @@
 		}
 	}
 
-	function writeCache(value, countedToday) {
+	function writeCache(value, countedVisit) {
 		try {
 			localStorage.setItem(storageCountKey, String(value));
-			if (countedToday) {
-				localStorage.setItem(storageDateKey, todayKey);
+			if (countedVisit) {
+				localStorage.setItem(storageVisitKey, String(Date.now()));
 			}
 		} catch (error) {
 			return;
 		}
 	}
 
-	function requestCounter(url, countedToday) {
+	function requestCounter(url, countedVisit) {
 		return fetch(url, {
 			method: "GET",
 			cache: "no-store"
@@ -56,7 +51,7 @@
 			})
 			.then(function (data) {
 				var count = typeof data.value === "number" ? data.value : 0;
-				writeCache(count, countedToday);
+				writeCache(count, countedVisit);
 				updateDisplay(count);
 			});
 	}
@@ -64,18 +59,19 @@
 	var cachedCount = readCachedCount();
 	updateDisplay(cachedCount);
 
-	var countedToday = false;
+	var countedVisit = false;
 	try {
-		countedToday = localStorage.getItem(storageDateKey) === todayKey;
+		var lastVisitAt = parseInt(localStorage.getItem(storageVisitKey) || "0", 10);
+		countedVisit = !Number.isNaN(lastVisitAt) && lastVisitAt > 0 && Date.now() - lastVisitAt < revisitWindowMs;
 	} catch (error) {
-		countedToday = false;
+		countedVisit = false;
 	}
 
-	var endpoint = countedToday
+	var endpoint = countedVisit
 		? "https://api.countapi.xyz/get/" + namespace + "/" + key
 		: "https://api.countapi.xyz/hit/" + namespace + "/" + key;
 
-	requestCounter(endpoint, !countedToday).catch(function () {
+	requestCounter(endpoint, !countedVisit).catch(function () {
 		updateDisplay(cachedCount);
 	});
 })();

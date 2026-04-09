@@ -36,7 +36,7 @@ a:hover {
 /*コンテナー（ホームページを囲む一番外側のブロック）
 ---------------------------------------------------------------------------*/
 #container {
-	max-width: 1400px;	/*ブロックの最大幅*/
+	max-width: 1000px;	/*ブロックの最大幅*/
 	margin: 0 auto;
 	padding: 0 3%;
 }
@@ -51,6 +51,12 @@ header {
 #logo img {
 	width: 400px;	/*画像幅*/
 	margin: 40px auto 40px;	/*ロゴの上と下に40pxスペースを空ける設定*/
+}
+
+@media screen and (min-width:581px) {
+	#logo img {
+		width: 320px;
+	}
 }
 
 /*トップページのメイン画像
@@ -326,10 +332,8 @@ body {
 /* 小説ページ */
 
 #contents .novel-title {
-	max-width: 50em;
 	text-align: center;
-	margin: 0 auto 20px;
-	box-sizing: border-box;
+	margin-bottom: 20px;
 }
 
 #contents .novel-body {
@@ -375,10 +379,6 @@ body {
 }
 
 @media screen and (max-width: 580px) {
-	#contents .novel-title {
-		max-width: 100%;
-	}
-
 	#contents .novel-body {
 		max-width: 100%;
 		padding: 0 10px;

@@ -308,3 +308,75 @@ body {
 #new details[open] summary h2::before {
 	content: "▼ ";
 }
+
+
+/* 小説ページ */
+
+#contents .novel-title {
+	max-width: 50em;
+	text-align: center;
+	margin: 0 auto 20px;
+	box-sizing: border-box;
+}
+
+#contents .novel-body {
+	max-width: 35em;
+	margin: 0 auto;
+	padding: 0 20px;
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", "MS PMincho", serif;
+	font-size: 1.05rem;
+	line-height: 2.2;
+	color: #000000;
+	word-break: normal;
+	overflow-wrap: break-word;
+}
+
+#contents .novel-body p {
+	padding: 0;
+	margin: 0 0 1.6em;
+	text-align: justify;
+	text-indent: 1em;
+	line-break: strict;
+}
+
+#contents .novel-body p.dialogue {
+	text-indent: 0;
+}
+
+#contents .novel-backlink {
+	max-width: 35em;
+	margin: 5em auto 0;
+	padding: 0 20px;
+	box-sizing: border-box;
+	text-align: right;
+	font-family: "Yu Mincho", "Hiragino Mincho ProN", "MS PMincho", serif;
+}
+
+#contents .novel-backlink a {
+	text-decoration: none;
+	border-bottom: 1px solid currentColor;
+	padding-bottom: 2px;
+}
+
+@media screen and (max-width: 580px) {
+	#contents .novel-title {
+		max-width: 100%;
+	}
+
+	#contents .novel-body {
+		max-width: 100%;
+		padding: 0 10px;
+		font-size: 1rem;
+		line-height: 2;
+	}
+
+	#contents .novel-body p {
+		margin-bottom: 1.4em;
+	}
+
+	#contents .novel-backlink {
+		max-width: 100%;
+		padding: 0 10px;
+		margin-top: 4em;
+	}
+}

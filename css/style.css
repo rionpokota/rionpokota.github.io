@@ -153,6 +153,19 @@ footer a {
 	text-decoration: none;
 	border: none;
 }
+footer .access-counter {
+	display: block;
+	margin-top: 8px;
+	font-size: 14px;
+	letter-spacing: 0.08em;
+}
+
+footer #access-counter-value {
+	display: inline-block;
+	min-width: 5ch;
+	font-variant-numeric: tabular-nums;
+}
+
 footer .pr {
 	display: block;
 }

@@ -314,7 +314,6 @@ body {
 
 #contents .novel-title {
 	max-width: 50em;
-	text-align: center;
 	margin: 0 auto 20px;
 	box-sizing: border-box;
 }
@@ -323,12 +322,16 @@ body {
 	max-width: 35em;
 	margin: 0 auto;
 	padding: 0 20px;
+	box-sizing: border-box;
 	font-family: "Yu Mincho", "Hiragino Mincho ProN", "MS PMincho", serif;
 	font-size: 1.05rem;
 	line-height: 2.2;
 	color: #000000;
+	white-space: pre-wrap;
 	word-break: normal;
 	overflow-wrap: break-word;
+	line-break: strict;
+	text-align: justify;
 }
 
 #contents .novel-body p {
@@ -336,7 +339,6 @@ body {
 	margin: 0 0 1.6em;
 	text-align: justify;
 	text-indent: 1em;
-	line-break: strict;
 }
 
 #contents .novel-body p.dialogue {

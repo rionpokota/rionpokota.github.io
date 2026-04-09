@@ -314,6 +314,7 @@ body {
 
 #contents .novel-title {
 	max-width: 50em;
+	text-align: center;
 	margin: 0 auto 20px;
 	box-sizing: border-box;
 }

@@ -6,7 +6,7 @@
 
 	var workspace = "capricalm-rionpokota-github-io";
 	var counterName = "site-access-total";
-	var apiBaseUrl = "https://api.counterapi.dev/v2/" + workspace + "/" + counterName;
+	var apiBaseUrl = "https://api.counterapi.dev/v1/" + workspace + "/" + counterName;
 	var storageCountKey = "capricalm-access-count-cache";
 	var storageVisitKey = "capricalm-access-last-visit-at";
 	var revisitWindowMs = 15 * 60 * 1000;
@@ -19,6 +19,10 @@
 		counterElement.textContent = formatCount(value);
 	}
 
+	function updateErrorDisplay() {
+		counterElement.textContent = "-----";
+	}
+
 	function extractCount(data) {
 		if (!data || typeof data !== "object") {
 			return 0;
@@ -26,6 +30,10 @@
 
 		if (typeof data.up_count === "number") {
 			return data.up_count;
+		}
+
+		if (typeof data.count === "number") {
+			return data.count;
 		}
 
 		if (typeof data.value === "number") {
@@ -86,6 +94,11 @@
 	}
 
 	requestCounter(!countedVisit).catch(function () {
-		updateDisplay(cachedCount);
+		if (cachedCount > 0) {
+			updateDisplay(cachedCount);
+			return;
+		}
+
+		updateErrorDisplay();
 	});
 })();

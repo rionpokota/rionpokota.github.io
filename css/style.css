@@ -148,6 +148,52 @@ header {
 	padding: 0 !important;
 }
 
+.gallery-grid {
+	display: grid;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	gap: 12px;
+	padding: 0 20px 20px;
+}
+
+.gallery-thumb {
+	display: block;
+	line-height: 0;
+	justify-self: center;
+}
+
+.gallery-thumb img {
+	width: 100%;
+	max-width: 200px;
+	max-width: 100%;
+	height: auto;
+	border-radius: 6px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-lightbox {
+	position: fixed;
+	inset: 0;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	box-sizing: border-box;
+	background: rgba(0, 0, 0, 0.82);
+	z-index: 1000;
+}
+
+.gallery-lightbox:target {
+	display: flex;
+}
+
+.gallery-lightbox img {
+	max-width: min(100%, 1400px);
+	max-height: 100%;
+	width: auto;
+	height: auto;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
 /*フッター(ページ最下部のcopyrightのパーツ)設定
 ---------------------------------------------------------------------------*/
 footer {
@@ -290,6 +336,18 @@ body {
 	float: left;		/*画像を左に回り込み*/
 	margin-right: 3%	/*画像の右側に空けるスペース*/
 }
+
+	.gallery-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 10px;
+		padding: 0 10px 20px;
+	}
+
+	.gallery-thumb img {
+		width: 100%;
+		max-width: 200px;
+	}
 
 /*その他
 ---------------------------------------------------------------------------*/

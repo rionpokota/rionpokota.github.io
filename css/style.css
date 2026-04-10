@@ -75,13 +75,23 @@ header {
 	font-size: 18px;		/*文字サイズ*/
 	margin-bottom: 40px;	/*下に空けるスペース*/
 }
+#menubar ul {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	gap: 0;
+}
 /*メニュー１個あたりの設定*/
 #menubar li {
-	display: inline;	/*横並びにする設定*/
+	display: block;	/*横並びにする設定*/
+	flex: 0 1 auto;
 }
 #menubar li a {
+	display: block;
 	text-decoration: none;
 	padding: 15px 30px;	/*各メニュー内の余白。上下に15px、左右に30pxあけるという意味。*/
+	white-space: nowrap;
 }
 /*マウスオン時の設定*/
 #menubar li a:hover {
@@ -315,13 +325,19 @@ body {
 /*メニュー
 ---------------------------------------------------------------------------*/
 /*メニュー１個あたりの設定*/
+#menubar {
+	font-size: clamp(12px, 3.2vw, 16px);
+}
+#menubar ul {
+	justify-content: space-between;
+}
 #menubar li {
-	display: inline;	/*横並びにする設定*/
-	/* margin-right: 5px; */
+	display: block;	/*横並びにする設定*/
+	flex: 1 1 0;
 }
 #menubar li a {
 	text-decoration: none;
-	padding: 8px 10px;	/*各メニュー内の余白。*/
+	padding: 8px 4px;	/*各メニュー内の余白。*/
 }
 
 /*Galleryページ

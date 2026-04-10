@@ -92,6 +92,8 @@ header {
 	text-decoration: none;
 	padding: 15px 30px;	/*各メニュー内の余白。上下に15px、左右に30pxあけるという意味。*/
 	white-space: nowrap;
+	border-bottom: 4px solid transparent;
+	box-sizing: border-box;
 }
 /*マウスオン時の設定*/
 #menubar li a:hover {

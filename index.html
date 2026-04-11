@@ -8,7 +8,6 @@
 <meta name="description" content="CapriCalm">
 <!-- <meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５"> -->
 <link rel="stylesheet" href="css/style.css">
-<link rel="icon" href="./images/icon.ico">
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -19,8 +18,15 @@
 
 <div id="container">
 
+<input type="checkbox" id="menubar-toggle">
+
 <header>
 <h1 id="logo"><a href="index.html"><img src="images/logo.png" alt="CapriCalm"></a></h1>
+<label for="menubar-toggle" id="menubar-button" aria-label="メニューを開閉">
+<span></span>
+<span></span>
+<span></span>
+</label>
 </header>
 
 <nav id="menubar">
@@ -59,7 +65,6 @@ Java、JavaScript、Pythonなどでいろいろなゲーム、ツールを作成
 <details>
 <summary><h2>更新履歴を見る</h2></summary>
 <dl>
-<dt>※リニューアルから<span id="renewal-days-value">000</span>日経過</dt>
 <dt>2026/04/10</dt>
 <dd>Galleryページを追加</dd>
 <dt>2026/04/09</dt>
@@ -82,6 +87,7 @@ Java、JavaScript、Pythonなどでいろいろなゲーム、ツールを作成
 <dt>2023/01/04</dt>
 <dd>リニューアル</dd>
 </dl>
+※リニューアルから<span id="renewal-days-value">000</span>日経過
 </details>
 </section>
 <!--

@@ -75,6 +75,16 @@ header {
 	font-size: 18px;		/*文字サイズ*/
 	margin-bottom: 40px;	/*下に空けるスペース*/
 }
+#menubar-toggle {
+	position: absolute;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+#menubar-button {
+	display: none;
+}
 #menubar ul {
 	display: flex;
 	flex-wrap: nowrap;
@@ -324,22 +334,105 @@ body {
 	line-height: 1.5;	/*行間*/
 }
 
+header {
+	position: relative;
+	z-index: 1001;
+}
+
+#logo img {
+	max-width: calc(100% - 60px);
+}
+
+#menubar-button {
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 44px;
+	height: 44px;
+	cursor: pointer;
+	z-index: 1002;
+}
+
+#menubar-button span {
+	position: absolute;
+	left: 9px;
+	right: 9px;
+	height: 2px;
+	background: #3d2d21;
+	border-radius: 999px;
+	transition: transform 0.3s, opacity 0.3s, top 0.3s;
+}
+
+#menubar-button span:nth-child(1) {
+	top: 12px;
+}
+
+#menubar-button span:nth-child(2) {
+	top: 21px;
+}
+
+#menubar-button span:nth-child(3) {
+	top: 30px;
+}
+
+#menubar-toggle:checked + #menubar-button span:nth-child(1) {
+	top: 21px;
+	transform: rotate(45deg);
+}
+
+#menubar-toggle:checked + #menubar-button span:nth-child(2) {
+	opacity: 0;
+}
+
+#menubar-toggle:checked + #menubar-button span:nth-child(3) {
+	top: 21px;
+	transform: rotate(-45deg);
+}
+
 /*メニュー
 ---------------------------------------------------------------------------*/
-/*メニュー１個あたりの設定*/
 #menubar {
-	font-size: clamp(15px, 4vw, 19px);
+	font-size: clamp(13px, 3.8vw, 16px);
+	display: none;
+	position: fixed;
+	inset: 0;
+	z-index: 1000;
+	margin: 0;
+	padding: 120px 20px 20px;
+	box-sizing: border-box;
+	background: rgba(0, 0, 0, 0.35);
+	overflow-y: auto;
 }
+#menubar-toggle:checked ~ #menubar {
+	display: block;
+}
+
 #menubar ul {
-	justify-content: space-evenly;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: flex-start;
+	gap: 8px;
+	max-width: 320px;
+	margin: 0 auto;
 }
+
 #menubar li {
 	display: block;	/*横並びにする設定*/
-	flex: 1 1 0;
+	flex: 0 0 auto;
 }
 #menubar li a {
+	display: block;
 	text-decoration: none;
-	padding: 8px 1px;	/*各メニュー内の余白。*/
+	padding: 12px 16px;
+	border-radius: 8px;
+	background: rgba(255, 255, 255, 0.95);
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+	text-align: center;
+	color: #3d2d21;
+	/*各メニュー内の余白。*/
 }
 
 /*Galleryページ

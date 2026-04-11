@@ -405,6 +405,13 @@ body {
 }
 
 
+/* 小説一覧 */
+@media screen and (min-width:581px) {
+	#contents .novel-index-item {
+		max-width: 420px;
+	}
+}
+
 /* 小説ページ */
 
 #contents .novel-title {

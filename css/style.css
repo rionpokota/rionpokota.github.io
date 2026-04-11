@@ -328,10 +328,10 @@ body {
 ---------------------------------------------------------------------------*/
 /*メニュー１個あたりの設定*/
 #menubar {
-	font-size: clamp(16px, 6vw, 20px);
+	font-size: clamp(14px, 4vw, 18px);
 }
 #menubar ul {
-	justify-content: space-between;
+	justify-content: space-evenly;
 }
 #menubar li {
 	display: block;	/*横並びにする設定*/

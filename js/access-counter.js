@@ -1,4 +1,14 @@
 (function () {
+	var renewalDaysElement = document.getElementById("renewal-days-value");
+	if (renewalDaysElement) {
+		var renewalStartDate = new Date(2023, 0, 4);
+		var today = new Date();
+		var startDate = new Date(renewalStartDate.getFullYear(), renewalStartDate.getMonth(), renewalStartDate.getDate());
+		var currentDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+		var elapsedDays = Math.floor((currentDate - startDate) / 86400000);
+		renewalDaysElement.textContent = String(Math.max(0, elapsedDays));
+	}
+
 	var counterElement = document.getElementById("access-counter-value");
 	if (!counterElement) {
 		return;

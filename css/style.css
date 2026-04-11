@@ -328,7 +328,7 @@ body {
 ---------------------------------------------------------------------------*/
 /*メニュー１個あたりの設定*/
 #menubar {
-	font-size: clamp(14px, 4vw, 18px);
+	font-size: clamp(15px, 4vw, 19px);
 }
 #menubar ul {
 	justify-content: space-evenly;

@@ -240,6 +240,43 @@ footer #access-counter-value {
 	font-variant-numeric: tabular-nums;
 }
 
+.back-to-top {
+	position: fixed;
+	right: 24px;
+	bottom: 24px;
+	width: 52px;
+	height: 52px;
+	border: none;
+	border-radius: 50%;
+	background: #3d2d21;
+	color: #fff;
+	font-size: 24px;
+	line-height: 1;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+	cursor: pointer;
+	z-index: 1001;
+	transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+}
+.back-to-top:hover {
+	background: #5c4334;
+}
+.back-to-top[hidden] {
+	display: none;
+}
+
+@media screen and (max-width:580px) {
+	.back-to-top {
+		right: 16px;
+		bottom: 16px;
+		width: 46px;
+		height: 46px;
+		font-size: 22px;
+	}
+}
+
 footer .pr {
 	display: block;
 }
@@ -294,6 +331,78 @@ footer .pr {
 .ta1 th {
 	text-align: center;	/*センタリング*/
 	width: 30%;			/*幅*/
+}
+
+/*カード一覧*/
+.card-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 20px;
+	margin: 0 0 20px;
+}
+.content-card {
+	display: grid;
+	grid-template-columns: 220px 1fr;
+	grid-template-areas:
+		"title desc"
+		"image desc";
+	column-gap: 18px;
+	row-gap: 12px;
+	align-items: start;
+	padding: 18px 20px;
+	border: 1px solid #999;
+	border-radius: 12px;
+	background: #fff;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+	color: inherit;
+	text-decoration: none;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.content-card:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+.content-card h4 {
+	grid-area: title;
+	margin: 0;
+	text-align: left;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.content-card img {
+	grid-area: image;
+	display: block;
+	width: 100%;
+	height: auto;
+	max-width: 260px;
+	margin: 0;
+	border-radius: 8px;
+}
+.content-card p {
+	grid-area: desc;
+	margin: 0;
+	line-height: 1.7;
+}
+
+@media screen and (max-width: 580px) {
+	.content-card {
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"title"
+			"image"
+			"desc";
+	}
+	.content-card h4 {
+		white-space: normal;
+	}
+	.content-card img {
+		max-width: 100%;
+		margin: 0 auto;
+	}
+	.screenshotv2-card img {
+		max-width: 180px;
+	}
 }
 
 /*トップページのNEWアイコン

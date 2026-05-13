@@ -112,3 +112,25 @@
 		updateErrorDisplay();
 	});
 })();
+
+(function () {
+	var button = document.createElement("button");
+	button.type = "button";
+	button.id = "back-to-top";
+	button.className = "back-to-top";
+	button.setAttribute("aria-label", "トップに戻る");
+	button.textContent = "↑";
+	button.hidden = true;
+	document.body.appendChild(button);
+
+	function updateVisibility() {
+		button.hidden = window.scrollY < 200;
+	}
+
+	window.addEventListener("scroll", updateVisibility, { passive: true });
+	updateVisibility();
+
+	button.addEventListener("click", function () {
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	});
+})();
